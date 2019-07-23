@@ -24,7 +24,7 @@ class SeeMore extends Component {
         casting: false
       }
     };
-    this.api = axios.create({ baseURL: "http://localhost:8000" });
+    this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
     // this.ShowContentResume = this.ShowContentResume.bind(this);
     // this.ShowContentInfos = this.ShowContentInfos.bind(this);
     // // this.ShowContentTitreSim = this.ShowContentTitreSim.bind(this);
