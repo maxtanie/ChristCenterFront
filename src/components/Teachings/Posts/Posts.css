@@ -1,0 +1,9 @@
+.container-posts {
+  width: 1000px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.bloc-img-theme img {
+  width: 300px;
+}

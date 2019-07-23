@@ -1,0 +1,35 @@
+.casting-container {
+  width: 600px !important;
+  min-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.grid-col-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+}
+
+.bloc-casting-img {
+  position: relative;
+}
+.bloc-casting-img img {
+  background: #000;
+  width: 100%;
+  height: 200px;
+  filter: saturate(0%);
+}
+
+.bloc-casting-img img:hover {
+  transition: 0.3s ease;
+  filter: saturate(100%);
+}
+
+.cast-actors {
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  margin-top: -20px;
+}

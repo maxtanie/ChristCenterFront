@@ -1,0 +1,114 @@
+.bloc-movies {
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+  min-height: 400px;
+  padding: 10px;
+  margin-bottom: 50px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.bloc-movies .title-movie {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -45px;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  font-size: 1.2em;
+  background: #a30808;
+}
+
+.bloc-movies .img-movie img {
+  width: 100%;
+  height: 300px;
+}
+
+.bloc-movies .info-movie {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.btn-watch {
+  margin-top: 30px;
+}
+
+.btn-watch .watch-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  background: #bc0d0d;
+  color: #fff;
+  z-index: 98;
+}
+
+.content-to-watch {
+  margin-top: 25px;
+}
+
+.see-more-link {
+  text-decoration: none;
+  color: #222;
+  z-index: 98;
+}
+
+.see-more-link:hover {
+  transition: 0.3s ease;
+  color: #bc0d0d;
+}
+
+.layer-synopsis {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  overflow: hidden;
+  color: #111;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.content-synopsis {
+  height: 410px;
+  padding: 20px;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  text-align: justify;
+}
+
+.txt-synopsis {
+  line-height: 1.5;
+}
+
+.bloc-movies:hover .layer-synopsis {
+  opacity: 1;
+}
+
+#content-synopsis::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: #eee;
+}
+
+#content-synopsis::-webkit-scrollbar {
+  width: 10px;
+  background-color: #c0c0c0;
+}
+
+#content-synopsis::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  height: 50px;
+}
+
+#content-synopsis::-webkit-scrollbar-track-piece {
+  height: 30px;
+}

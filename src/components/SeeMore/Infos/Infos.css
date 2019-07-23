@@ -1,0 +1,24 @@
+.bloc-img-poster img {
+  width: 250px;
+  height: 300px;
+}
+
+.bloc-info-movie {
+  width: 300px;
+  padding: 0 30px;
+}
+
+.bloc-info-movie .info {
+  margin-bottom: 25px;
+}
+
+.bloc-info-movie .info .info-txt {
+  line-height: 1.6;
+}
+
+.info-see-more {
+  width: 50%;
+  min-height: 1px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}

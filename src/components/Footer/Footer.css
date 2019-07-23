@@ -1,0 +1,38 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* background: #edeaea; */
+  /* background: #fff; */
+  background-image: url("../../images/bg22.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.resize-logo {
+  font-size: 0.6em;
+}
+
+.footer .quotation {
+  margin: 20px 0;
+}
+
+.footer .article-about {
+  margin-top: 20px;
+}
+
+.footer .article-about .text-article {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.content {
+  padding-top: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,41 @@
+.section-teachings {
+  padding: 50px 0;
+}
+
+.bloc-slide-quotation {
+  background: #fafafa;
+  margin-top: 50px;
+  padding: 40px 0;
+}
+
+.size-title {
+  font-size: 3em;
+}
+
+.bloc-info-theme {
+  margin-top: 90px;
+}
+
+.bloc-title-theme-and-img {
+  width: 450px;
+}
+
+.bloc-msg-theme {
+  width: 900px;
+}
+
+.bloc-img-theme {
+  margin-top: 25px;
+}
+
+.bloc-img-theme img {
+  width: 80%;
+}
+
+.mtop {
+  margin-top: 52px;
+}
+
+.bloc-video-edification {
+  margin-top: 80px;
+}

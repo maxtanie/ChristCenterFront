@@ -1,0 +1,232 @@
+@import url("./components/Home/Home.css");
+@import url("./components/Footer/Footer.css");
+@import url("./components/MainMovie/MainMovie.css");
+@import url("./components/Movies/Movies.css");
+@import url("./components/Nav/Nav.css");
+@import url("./components/SeeMore/SeeMore.css");
+@import url("./components//SeeMore/Infos/Infos.css");
+/* @import url("./components/Series/") */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 22rem;
+  font-family: "calibri light", sans-serif;
+  overflow-x: hidden;
+  /* background: #ebeaea;
+  background: #fff; */
+
+  /* background: #fff; */
+}
+
+/*
+-------------------------------------------------------------------
+SCROLLBAR STYLE
+-------------------------------------------------------------------
+*/
+body::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: #eee;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #bc0d0d;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #bc0d0d;
+  height: 50px;
+}
+
+body::-webkit-scrollbar-track-piece {
+  height: 30px;
+}
+
+/*
+/*
+-----------------------------------------
+DEFAULT STYLE
+-----------------------------------------
+*/
+
+/*
+-----------------------------------------
+LOGO
+-----------------------------------------
+*/
+.logo {
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/*
+-----------------------------------------
+CONTAINER
+-----------------------------------------
+*/
+.container {
+  width: 1224px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.container-movies {
+  width: 1090px;
+  max-width: 100%;
+  margin: auto;
+}
+
+/*
+-----------------------------------------
+POSITION
+-----------------------------------------
+*/
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grid-col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+/*
+-----------------------------------------
+COLOR TEXT
+-----------------------------------------
+*/
+.white {
+  color: #fff !important;
+}
+
+.red {
+  /* color: #bc0d0d !important; */
+  color: #cc0000 !important;
+}
+
+.black {
+  color: #111;
+}
+/*
+-----------------------------------------
+FONT
+-----------------------------------------
+*/
+.oswald {
+  font-family: "oswald";
+}
+
+.openSans {
+  font-family: "Open Sans";
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.list-infos {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 25px;
+  list-style-type: none;
+}
+
+/*
+--------------------------------------------
+CODE TO MOVE IN HIS TRUE COMPONENTS
+--------------------------------------------
+*/
+.mTop {
+  margin-top: 200px;
+}
+
+.hide {
+  display: none !important;
+
+  overflow: hidden;
+}
+
+.show {
+  position: absolute;
+  z-index: 99999;
+  width: 25% !important;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  background: #fff !important;
+  color: #111 !important;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 9998;
+  overflow: auto;
+}
+
+.layer::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: #eee;
+}
+
+.layer::-webkit-scrollbar {
+  width: 10px;
+  background-color: #bc0d0d;
+}
+
+.layer::-webkit-scrollbar-thumb {
+  background-color: #bc0d0d;
+  height: 50px;
+}
+
+.layer::-webkit-scrollbar-track-piece {
+  height: 30px;
+}
+
+.bloc-movie-filtered {
+  margin-top: 100px;
+  z-index: 999999999;
+}

@@ -1,0 +1,95 @@
+/*
+-----------------------------------------
+SUBNAV
+-----------------------------------------
+*/
+
+.nav .subNav {
+  padding: 20px;
+  /* background: #bc0d0d; */
+  background: #cc0000;
+}
+
+.nav .subNav .list-items-connection {
+  padding: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  /* font-family: "calibri light"; */
+}
+
+.nav .subNav .list-items-connection:hover {
+  color: #111;
+  transition: 0.3s ease;
+}
+/*
+-----------------------------------------
+NAV
+-----------------------------------------
+*/
+.nav {
+  /* position: sticky;
+  top: 0;
+  left: 0;
+  right: 0; */
+  background: #000;
+  /* background: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); */
+  /* padding-bottom: 20px; */
+  z-index: 9999;
+}
+
+.nav .list-menu {
+  position: relative;
+  margin-top: 15px;
+  list-style-type: none;
+}
+
+.list-items {
+  padding: 10px 25px;
+  padding-bottom: 30px;
+  display: block;
+
+  text-decoration: none;
+  color: #fff;
+  /* font-family: "calibri light"; */
+}
+
+.list-items:hover,
+.list-infos:hover {
+  color: #bc0d0d;
+  transition: 0.3s ease;
+  /* font-weight: bold; */
+}
+
+.td-none {
+  text-decoration: none;
+}
+
+.sub-menu {
+  width: 200px;
+  position: absolute;
+  list-style-type: none;
+  background: #bc0d0d;
+  text-align: center;
+  display: none;
+  margin-top: 0px;
+  margin-left: -45px;
+  z-index: 9999;
+  transition: 0.2s linear;
+}
+
+.list-sub-menu {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  display: block;
+}
+
+#teachings:hover .sub-menu {
+  display: block;
+}
+
+.list-sub-menu:hover {
+  color: #111;
+  transition: 0.3s ease;
+}
