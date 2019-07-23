@@ -10,10 +10,12 @@ const Teachings = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(1);
 
+  const api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
+
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get("http://localhost:8000/teachings/adults");
+      const res = await api.get("/teachings/adults");
       setPosts(res.data);
       setLoading(false);
     };

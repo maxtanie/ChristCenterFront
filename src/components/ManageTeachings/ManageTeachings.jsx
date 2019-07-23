@@ -14,7 +14,7 @@ class ManageTeachings extends Component {
       deteletTeaching: {},
       showApi: ""
     };
-    this.api = axios.create({ baseURL: "http://localhost:8000" });
+    this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
   }
 
   getAPITeachings = () => {
@@ -73,6 +73,7 @@ class ManageTeachings extends Component {
       .then(res => {
         console.log("ADD TEACHINGS ADULTS POST ID", res);
         this.setState({ apiAddTeachingsAdultsById: res.data });
+        this.props.history.push("/teachings/adults");
       })
       .catch(err => {
         console.log("SORYYYYYY", err);

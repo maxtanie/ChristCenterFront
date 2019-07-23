@@ -11,7 +11,7 @@ class EditTeachings extends Component {
       text: "",
       image: ""
     };
-    this.api = axios.create({ baseURL: "http://localhost:8000" });
+    this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
   }
 
   handleChange = e => {

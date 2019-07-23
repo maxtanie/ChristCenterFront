@@ -69,8 +69,8 @@ class FormTeachingsAdults extends Component {
     e.preventDefault();
     console.log(this.state.data);
     console.log(this.state.apiAddTeachings);
-    axios
-      .post("http://localhost:8000/teachings/adults", this.state)
+    this.api
+      .post("/teachings/adults", this.state)
       .then(res => {
         console.log(res);
         this.setState({
@@ -78,6 +78,7 @@ class FormTeachingsAdults extends Component {
           apiAddTeachings: this.state.title,
           apiAddTeachings: this.state.text
         });
+        this.props.history.push("/teachings/adults");
       })
       .catch(err => err);
 
