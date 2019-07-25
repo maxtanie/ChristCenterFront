@@ -1,5 +1,6 @@
 .container-teachings-form {
   width: 700px;
+  max-width: 100%;
   margin: auto;
   min-height: 500px;
   padding: 50px;

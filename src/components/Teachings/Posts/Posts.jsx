@@ -1,6 +1,7 @@
 import React from "react";
 import "./Posts.css";
 // import { Navlink } from "react-router-dom";
+import VideosTeachingsSlider from "../VideosTeachingsSlider/VideosTeachingsSlider";
 
 const Posts = ({ posts, loading }) => {
   if (loading) {
@@ -83,7 +84,7 @@ const Posts = ({ posts, loading }) => {
         //   </div>
         // </section>
         <section className="section-teachings">
-          <h1 className="red center size-title">Teachings Adults</h1>
+          <h1 className="red center size-title" />
           <div className="bloc-slide-quotation center">
             <q>Je suis le chemin la vérité et la vie.</q>
             <span className="bold red"> Jean 6: 35</span>
@@ -148,6 +149,7 @@ const Posts = ({ posts, loading }) => {
                 Vidéos édifiantes sur la connaissance de Jésus
               </h2>
             </div>
+            {/* <VideosTeachingsSlider video={post.text} /> */}
           </div>
         </section>
       ))}

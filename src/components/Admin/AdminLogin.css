@@ -1,0 +1,58 @@
+.adminLoginHome {
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  background-image: url("https://s1.1zoom.me/b5050/461/Scotland_Parks_Autumn_Bridges_Dunkeld_Perthshire_532471_1600x900.jpg");
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 0;
+}
+
+.contentCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.containerAdminLogin {
+  width: 350px;
+  max-width: 100%;
+}
+
+.formAdminLogin {
+  background: rgba(255, 255, 255, 1);
+  padding: 30px 15px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-top: 10px solid #b3310c;
+}
+
+.inputAdmin {
+  width: 90%;
+  outline: none;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.btnLogin {
+  cursor: pointer;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  background: #b3310c;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.mBot {
+  margin-bottom: 15px;
+}
+
+.grey {
+  color: #555;
+}

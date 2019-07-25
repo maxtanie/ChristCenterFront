@@ -1,7 +1,7 @@
 "use strict";
 
 import React, { Component } from "react";
-import Jesus from "./bible.mp4";
+import Jesus from "./lavoixdupardon.mp4";
 
 class MainMovie extends Component {
   constructor(props) {
@@ -9,31 +9,13 @@ class MainMovie extends Component {
 
     this.state = {
       videoURL: Jesus,
-      backVideo: document.querySelector("video #background-video"),
-      playBtn: document.querySelector(".play"),
-      pauseBtn: document.querySelector(".pause"),
-      muteBtn: document.querySelector(".mute"),
-      soundBtn: document.querySelector(".sound"),
-      backMute: "",
-      mvMute: "",
-      play: "",
-      pause: "",
-      isVideoMuted: false
+      isVideoMuted: false,
+      isVideoPlayed: true
     };
   }
 
-  MuteVideo = () => {
-    this.setState({
-      backMute: (document.querySelector("#background-video").muted = true)
-    });
-  };
-
   pauseVideo = () => {
-    this.state.pauseBtn = onclick = () => {
-      this.setState({
-        pause: document.querySelector("#background-video").pause()
-      });
-    };
+    this.setState({ isVideoPlayed: !this.state.isVideoPlayed });
   };
 
   // playVideo = () => {
@@ -48,48 +30,50 @@ class MainMovie extends Component {
     this.setState({ isVideoMuted: !this.state.isVideoMuted });
   };
 
-  addSound = () => {
-    this.state.soundBtn = onclick = () => {
-      if ((document.querySelector("#background-video").muted = true)) {
-        this.setState({
-          mvMute: (document.querySelector("#background-video").muted = false)
-        });
-      } else {
-        this.setState({
-          mvMute: (document.querySelector("#background-video").muted = true)
-        });
-      }
-    };
-  };
-
-  componentDidMount = () => {
-    //this.MuteVideo();
-  };
+  componentDidMount() {
+    document.getElementById("body").className = "darktheme";
+    console.log(document.getElementById("body"));
+  }
+  componentWillUnmount() {
+    document.getElementById("body").className = "";
+  }
 
   render() {
     return (
       <div id="wrapper-video " className="flex-movies">
-        {/* <div className="bloc-content-video">
-          <span onClick={this.playVideo} className="play btn-action-movie">
-            Play
-          </span>
-          <span onClick={this.pauseVideo} className="pause btn-action-movie">
-            Pause
-          </span>
-          <span onClick={this.removeSound} className="mute btn-action-movie">
-            {this.state.isVideoMuted ? "Unmute" : "Muted"}
-          </span>
-          <span onClick={this.addSound} className="sound btn-action-movie">
-            Sound
-          </span>
-        </div> */}
-        <div className="info" />
-        <video
-          id="background-video"
-          loop
-          autoPlay
-          muted={this.state.isVideoMuted}
-        >
+        <div className="info">
+          <div className="content-center">
+            <div className="title-movie">
+              <h2 className="small-title-movie">I can only imagine</h2>
+            </div>
+            <div className="bloc-quote-main-movie">
+              <q className="center">
+                Le <b className="red">pardon, </b> une puissance qui libère
+              </q>
+              <span> Psaume 109:18</span>
+            </div>
+            <div className="see-more" />
+
+            <span onClick={this.pauseVideo} className="pause btn-action-movie">
+              {this.state.isVideoPlayed ? (
+                <i class="fa fa-play icon-manipe mIcon" />
+              ) : (
+                <i class="fa fa-pause icon-manipe mIcon" />
+              )}
+            </span>
+            <span onClick={this.removeSound} className="mute btn-action-movie">
+              {this.state.isVideoMuted ? (
+                <i class="fa fa-volume-mute icon-manipe" />
+              ) : (
+                <i class="fa fa-volume-up icon-manipe" />
+              )}
+            </span>
+            {/* <span onClick={this.addSound} className="sound btn-action-movie">
+              Sound
+            </span> */}
+          </div>
+        </div>
+        <video id="background-video" loop autoPlay>
           <source src={this.state.videoURL} type="video/mp4" />
           <source src={this.state.videoURL} type="video/ogg" />
           Your browser does not support the video tag.

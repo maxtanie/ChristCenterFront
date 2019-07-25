@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./ManageTeachings.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import NavAdmin from "../Admin/NavAdmin/NavAdmin";
+
 class ManageTeachings extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,10 @@ class ManageTeachings extends Component {
       showApi: ""
     };
     this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
+  }
+
+  componentWillUnmount() {
+    document.getElementById("body").className = "";
   }
 
   getAPITeachings = () => {
@@ -33,7 +39,7 @@ class ManageTeachings extends Component {
 
   getAPManageTeachingsAdults = () => {
     this.api
-      .get("/manage-teachings-adults")
+      .get("/admin/manage-teachings-adults")
       .then(res => {
         console.log("MANAGE TEACHINGS ADULTS", res);
         this.setState({
@@ -69,11 +75,10 @@ class ManageTeachings extends Component {
 
   callAddteachingsAdults = id => {
     this.api
-      .post("/add-teachings-adults/" + id)
+      .post("/admin/add-teachings-adults/" + id)
       .then(res => {
         console.log("ADD TEACHINGS ADULTS POST ID", res);
         this.setState({ apiAddTeachingsAdultsById: res.data });
-        this.props.history.push("/teachings/adults");
       })
       .catch(err => {
         console.log("SORYYYYYY", err);
@@ -92,10 +97,13 @@ class ManageTeachings extends Component {
     this.getAPManageTeachingsAdults();
     this.callAddteachingsAdults(this.props.match.params.id);
     // this.DeleteTeachings(this.props.match.params.id);
+    document.getElementById("body").className = "paddingNone";
+    console.log(document.getElementById("body"));
   };
 
   render() {
     console.log("APIIIIIII", this.state.apiAddTeachingsAdultsById);
+    console.log("PROPS", this.props);
     // console.log(this.props.match.params);
     // const byId = this.state.apiManageTeachingsAdults.map(getId => {
     //   return <div>{getId._id}</div>;
@@ -109,11 +117,9 @@ class ManageTeachings extends Component {
     // console.log(elem.title);
 
     return (
-      <div>
+      <div className="flex">
         <div className="container big-container-teachings">
-          <h3 className="manage-teachings-title oswald">
-            Manage Teachings Adults
-          </h3>
+          <h3 className="manage-teachings-title">Manage Teachings</h3>
           <table class="product-manage-table">
             <thead>
               <tr class="table-row">
@@ -185,6 +191,7 @@ class ManageTeachings extends Component {
             })}
           </table>
         </div>
+        <NavAdmin loggedInUser={this.props.loggedInUser} />
       </div>
     );
   }

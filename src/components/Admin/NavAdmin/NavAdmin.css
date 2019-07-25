@@ -1,0 +1,67 @@
+.subnav {
+  width: 88%;
+  position: absolute;
+  margin-left: 12%;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 60px;
+  padding: 20px;
+  background: #111;
+}
+.navAdmin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 12%;
+  max-width: 100%;
+  background: #111;
+  font-family: "calibri";
+  padding-top: 30px;
+}
+
+.logoAdmin a {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #000;
+}
+
+.menu-admin {
+  margin-top: 20px;
+}
+
+.list-item-admin {
+  list-style-type: none;
+  margin-bottom: 3px;
+}
+
+.list-item-admin a {
+  padding: 15px;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.icon-admin {
+  margin-right: 10px;
+  color: #f0f0f0;
+}
+
+.list-item-logout {
+  list-style-type: none;
+  text-align: right;
+  text-decoration: none;
+}
+.list-item-logout a {
+  text-decoration: none;
+  color: #fff;
+}
+.icon-logout {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2em;
+  list-style-type: none;
+  margin-right: 5px;
+  margin-left: 10px;
+}

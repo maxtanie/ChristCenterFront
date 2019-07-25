@@ -45,7 +45,7 @@ class EditTeachings extends Component {
       .then(res => {
         console.log(res);
         // res.send("/manage-teachings-adults");
-        this.props.history.push("/manage-teachings-adults");
+        this.props.history.push("/admin/manage-teachings-adults");
       })
       .catch(err => err);
 

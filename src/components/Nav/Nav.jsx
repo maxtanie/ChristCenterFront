@@ -2,25 +2,33 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Nav.css";
 import FilterSearch from "../FilterSearch/FilterSearch";
+import logo from "../../images/logo.png";
 
 const Nav = props => {
   return (
     <nav className="nav">
       <div className="subNav">
         <div className="container right">
-          <NavLink className="list-items-connection" to="/sign-in">
+          {/* <NavLink className="list-items-connection" to="/sign-in">
             Sign In
           </NavLink>
           <NavLink className="list-items-connection" to="/sign-up">
             Sign Up
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
-      <div className="logo center oswald">
+      <div className="logo center">
         <NavLink className="td-none" to="/">
-          <span className="red">
+          {/* <span className="red">
             Christ<span className="white">Center</span>
+            <img src={logo} alt="" className="logo" />
+          </span> */}
+
+          <span class="txt red">Chris</span>
+          <span class="cross">
+            <span class="cross1" />
           </span>
+          <span class="txt white">Center</span>
         </NavLink>
       </div>
       <div className="flex container">
@@ -44,8 +52,10 @@ const Nav = props => {
             </NavLink>
           </li>
           <li className="list" id="teachings">
-            <NavLink className="list-items">Teachings</NavLink>
-            <ul className="sub-menu">
+            <NavLink className="list-items" to="/teachings/adults">
+              Teachings
+            </NavLink>
+            {/* <ul className="sub-menu">
               <li>
                 <NavLink className="list-sub-menu" to="/teachings/adults">
                   Adults
@@ -61,7 +71,7 @@ const Nav = props => {
                   Kids
                 </NavLink>
               </li>
-            </ul>
+            </ul> */}
           </li>
           <li className="list">
             <NavLink className="list-items" to="/youth">

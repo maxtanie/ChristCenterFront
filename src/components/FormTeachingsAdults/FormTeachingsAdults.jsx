@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import "./FormTeachings.css";
 import axios from "axios";
+import NavAdmin from "../Admin/NavAdmin/NavAdmin";
 
 class FormTeachingsAdults extends Component {
   constructor(props) {
@@ -13,6 +14,14 @@ class FormTeachingsAdults extends Component {
       image: ""
     };
     this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
+  }
+
+  componentDidMount() {
+    document.getElementById("body").className = "paddingNone";
+    console.log(document.getElementById("body"));
+  }
+  componentWillUnmount() {
+    document.getElementById("body").className = "";
   }
 
   // getAPI = () => {
@@ -73,12 +82,13 @@ class FormTeachingsAdults extends Component {
       .post("/teachings/adults", this.state)
       .then(res => {
         console.log(res);
+        console.log("***", this.props);
         this.setState({
           apiAddTeachings: res.data,
           apiAddTeachings: this.state.title,
           apiAddTeachings: this.state.text
         });
-        this.props.history.push("/teachings/adults");
+        this.props.history.push("/admin/manage-teachings-adults");
       })
       .catch(err => err);
 
@@ -95,6 +105,8 @@ class FormTeachingsAdults extends Component {
     //   .catch(err => err);
   };
   render() {
+    console.log("-----props at form teaching ----");
+    console.log(this.props);
     const { title, text, image } = this.state;
     return (
       <div className="container-teachings-form">
@@ -102,7 +114,7 @@ class FormTeachingsAdults extends Component {
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
           method="post"
-          className="form-container"
+          className="mtop"
         >
           <h3 className="center">Teachings Adults Form</h3>
           <div className="form-item mtop">
@@ -135,6 +147,7 @@ class FormTeachingsAdults extends Component {
             Add
           </button>
         </form>
+        <NavAdmin loggedInUser={this.props.loggedInUser} />
       </div>
     );
   }

@@ -8,6 +8,7 @@ class Home extends React.Component {
     super(props);
     this.state = {};
   }
+
   render() {
     return <div>{this.props.children}</div>;
   }

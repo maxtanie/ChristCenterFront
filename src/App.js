@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Router, Switch, BrowserRouter } from "react-router-dom";
+import { browserHistory } from "react-router";
+import { withRouter } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
 
@@ -18,28 +20,62 @@ import Teachings from "./components/Teachings/Teachings";
 import FormTeachingsAdults from "./components/FormTeachingsAdults/FormTeachingsAdults";
 import ManageTeachings from "./components/ManageTeachings/ManageTeachings";
 import EditTeachings from "./components/ManageTeachings/EditTeachings/EditTeachings";
-import ScrollToTop from "./ScrollToTop";
+// ADMIN
+import AdminLogin from "./components/Admin/AdminLogin";
+import AdminPage from "./components/Admin/AdminPage/AdminPage";
+
+// import ScrollToTop from "./ScrollToTop";
 
 class App extends Component {
-  constructor({ props }) {
+  state = {
+    apiMovies: [],
+    apiSeeMoreByID: {},
+    searchMovies: "",
+    // showLayer: "",
+    muteVideo: "",
+    poster: "",
+    showLayer: false,
+    hideNav: "",
+    hideFooter: "",
+    hideLayer: "",
+    loader: "",
+    loggedInUser: null
+  };
+
+  constructor(props) {
     super(props);
-    this.state = {
-      apiMovies: [],
-      apiSeeMoreByID: {},
-      searchMovies: "",
-      // showLayer: "",
-      muteVideo: "",
-      poster: "",
-      showLayer: false
-    };
-    this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
+    this.props.history.listen((location, action) => {
+      console.log("on route change");
+      this.setState(
+        {
+          loggedInUser: JSON.parse(window.localStorage.getItem("admin"))
+        },
+        () => {
+          console.log("updated state ???", this.state.loggedInUser);
+        }
+      );
+    });
   }
 
+  api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
+
+  // loader = () => {
+  //   setTimeout(() => {
+  //     this.setState({
+  //       loader: (
+  //         <video id="background-video" loop autoPlay>
+  //           <source src="./components/MainMovie/intro3.mp4" type="video/mp4" />
+  //           <source src="./components/MainMovie/intro3.mp4" type="video/ogg" />
+  //         </video>
+  //       )
+  //     });
+  //   });
+  // };
   componentWillMount() {
-    this.unlisten = this.props.history.listen((location, action) => {
-      console.log("on route change");
-      this.setState({ showLayer: false });
-    });
+    // this.unlisten = this.props.history.listen((location, action) => {
+    //   console.log("on route change");
+    //   this.setState({ showLayer: false });
+    // });
   }
 
   static getDerivedStateFromProps(newProp, newState) {
@@ -82,9 +118,24 @@ class App extends Component {
     });
   };
 
+  // removeElem = () => {
+  //   if (window.location.pathname.includes("/admin")) {
+  //     let nav = document.querySelector(".nav");
+  //     let footer = document.querySelector(".footer");
+  //     let layer = document.querySelector(".layer");
+  //     this.setState({
+  //       hideNav: nav.parentNode.removeChild(nav),
+  //       hideFooter: footer.parentNode.removeChild(footer),
+  //       hideLayer: layer.parentNode.removeChild(layer)
+  //     });
+  //   }
+  // };
+
   componentDidMount = () => {
+    // this.loader();
     this.callAPI();
     this.callSeeMoreMovieId();
+    // this.removeElem();
   };
 
   render() {
@@ -98,10 +149,12 @@ class App extends Component {
           .includes(this.state.searchMovies.toLocaleLowerCase())
       );
     });
-
+    console.log(this.props.history, "app js ---------------------");
     return (
       <React.Fragment>
-        <Nav handleInput={this.HandleInput} moveNav={this.state.showLayer} />
+        {!this.props.history.location.pathname.includes("admin") && (
+          <Nav handleInput={this.HandleInput} moveNav={this.state.showLayer} />
+        )}
         <div className={`layer ${this.state.showLayer ? "" : "hide"}`}>
           <div className="bloc-movie-filtered">
             <MoviesLists filterMovies={filterMovies} />
@@ -125,30 +178,61 @@ class App extends Component {
               exact
               component={FormTeachingsAdults}
             /> */}
-            <Route
-              path="/add-teachings-adults"
+            {/* <Route
+              path="/admin/add-teachings-adults"
               exact
               component={FormTeachingsAdults}
-            />
-            <Route path="/edit/teachings/:id" exact component={EditTeachings} />
-            <Route path="/teachings/teenager" exact component={Enseignements} />
-            <Route path="/teachings/kids" exact component={Enseignements} />
+            /> */}
             <Route
-              path="/manage-teachings-adults"
+              path="/admin/add-teachings-adults"
+              exact
+              render={({ match, history }) => {
+                return (
+                  <FormTeachingsAdults
+                    match={match}
+                    history={history}
+                    loggedInUser={this.state.loggedInUser}
+                  />
+                );
+              }}
+            />
+            <Route
+              path="/admin/manage-teachings-adults"
+              exact
+              render={({ match }) => {
+                return (
+                  <ManageTeachings
+                    match={match}
+                    loggedInUser={this.state.loggedInUser}
+                  />
+                );
+              }}
+            />
+            <Route
+              path="/admin/manage-teachings-adults"
               exact
               component={ManageTeachings}
             />
+
+            <Route path="/edit/teachings/:id" exact component={EditTeachings} />
+            <Route path="/teachings/teenager" exact component={Enseignements} />
+            <Route path="/teachings/kids" exact component={Enseignements} />
+
             <Route
               path="/delete-teachings-adults/:id"
               exact
               component={ManageTeachings}
             />
+            <Route path="/admin/login" exact component={AdminLogin} />
+            <Route path="/admin/index" exact component={AdminPage} />
           </Switch>
-          <Footer />
+          {!this.props.history.location.pathname.includes("admin") && (
+            <Footer />
+          )}
         </div>
       </React.Fragment>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

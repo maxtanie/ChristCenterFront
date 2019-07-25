@@ -8,13 +8,17 @@ import Resume from "./Resume/Resume";
 import Infos from "./Infos/Infos";
 // import TitreSimilaire from "./TitreSimilaire/TitreSimilaire";
 import Casting from "./Casting/Casting";
+// import { Slide } from "react-slideshow-image";
+// import slide from "react-slideshow-image/lib/components/slideshow/slide";
+import Slider from "react-animated-slider";
+import "react-animated-slider/build/horizontal.css";
 
 class SeeMore extends Component {
   constructor(props) {
     super(props);
-    this.sysnopsis = React.createRef();
-    this.infos = React.createRef();
-    this.casting = React.createRef();
+    // this.sysnopsis = React.createRef();
+    // this.infos = React.createRef();
+    // this.casting = React.createRef();
     this.state = {
       movie: [],
       imagesSlide: [],
@@ -87,13 +91,41 @@ class SeeMore extends Component {
   render() {
     const { detailsWidget } = this.state;
     console.log(this.state.detailsWidget);
+
     return (
       <React.Fragment>
-        <div className="poster-movie">
-          {/* {this.state.movie.imageSlide &&
-            this.state.movie.imageSlide.map(img => <img src={img} />)} */}
-        </div>
-        <section className="see-more">
+        {/* <div className="container-slide"> */}
+        {/* <Slide>
+            <div className="each-slide">
+              <div>
+                {this.state.movie.actors &&
+                  this.state.movie.actors.map(elem => {
+                    return <p>{elem}</p>;
+                  })}
+              </div>
+            </div>
+          </Slide> */}
+        {/* {this.state.movie.imageSlide &&
+            this.state.movie.imageSlide.map(img => {
+              return (
+                <React.Fragment>
+                  <div className="slide">
+                    <img src={img} alt="" className="show-image" />
+                  </div>
+                </React.Fragment>
+              );
+            })}
+        </div> */}
+        <Slider>
+          {this.state.movie.imageSlide &&
+            this.state.movie.imageSlide.map((img, index) => (
+              <section key={index}>
+                <img src={img} className="show-image" />
+              </section>
+            ))}
+        </Slider>
+
+        <section className="see-more infos">
           <div className="container-movies">
             <div className="bloc-content-infos">
               <div className="bloc-info-title">
