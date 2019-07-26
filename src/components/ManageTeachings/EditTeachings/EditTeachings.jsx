@@ -7,9 +7,21 @@ class EditTeachings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      text: "",
-      image: ""
+      // title: "",
+      // text: "",
+      // image: ""
+      titleTeachings: "",
+      sliderCitation: [],
+      titleArticle: "",
+      imageArticle: "",
+      articlePartOne: [
+        {
+          title: ""
+        }
+      ],
+      articlePartTwo: [],
+      conclusion: "",
+      article: ""
     };
     this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
   }
@@ -21,13 +33,16 @@ class EditTeachings extends Component {
   };
   componentDidMount() {
     console.log(this.props.match.params.id);
+    console.log("PROPSSSSSS", this.state);
     this.api
       .get("/add-teachings-adults/" + this.props.match.params.id)
       .then(res =>
         this.setState({
-          title: res.data.title,
-          text: res.data.text,
-          image: res.data.image
+          titleTeachings: res.data.titleTeachings,
+          titleArticle: res.data.titleArticle,
+          imageArticle: res.data.imageArticle,
+          conclusion: res.data.conclusion,
+          articlePartOne: res.data.articlePartOne
         })
       )
       .catch(err => console.log(err));
@@ -39,7 +54,7 @@ class EditTeachings extends Component {
 
     e.preventDefault();
     console.log(this.state.data);
-    console.log(this.state.apiAddTeachings);
+    console.log(this.state);
     this.api
       .patch("/teachings/" + this.props.match.params.id, this.state)
       .then(res => {
@@ -74,31 +89,53 @@ class EditTeachings extends Component {
           <h3 className="center">Teachings Adults Form</h3>
           <div className="form-item mtop">
             <input
-              value={this.state.title}
+              value={this.state.titleTeachings}
               className="input-style"
               type="text"
-              name="title"
+              name="titleTeachings"
               placeholder="Add title"
             />
           </div>
           <div className="form-item">
             <input
-              value={this.state.image}
+              value={this.state.imageArticle}
               className="input-style"
               type="text"
-              name="image"
+              name="imageArticle"
               placeholder="Add link"
             />
           </div>
           <div className="form-item">
             <textarea
-              value={this.state.text}
+              value={this.state.titleArticle}
               className="input-style"
-              name="text"
+              name="titleArticle"
               id=""
               cols="30"
               rows="10"
-              placeholder="Add text"
+              placeholder="Add Title Article"
+            />
+          </div>
+
+          <div className="form-item">
+            <textarea
+              value={this.state.conclusion}
+              className="input-style"
+              name="conclusion"
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Add Conclusion"
+            />
+          </div>
+
+          <div className="form-item">
+            <input
+              value={this.state.articlePartOne}
+              className="input-style"
+              name="articlePartOne"
+              id=""
+              placeholder="Add Article Part One Title"
             />
           </div>
           <button type="submit" className="btn-add">

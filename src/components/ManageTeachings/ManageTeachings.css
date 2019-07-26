@@ -38,12 +38,12 @@ h3.manage-teachings-title {
   display: flex;
   align-content: center;
   align-items: center;
-  width: 65%;
+  width: 150px;
   background: #fff;
 }
 
 .table-head {
-  width: 80%;
+  width: 150px;
   /* border: 1px solid; */
   text-align: left;
 
@@ -68,14 +68,14 @@ h3.manage-teachings-title {
 
 .text-height {
   line-height: 1.5;
-  height: 145px;
+  height: 120px;
   overflow: hidden;
 }
 .table-image {
-  width: 100%;
+  width: 120px;
   border: 5px solid #fff;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
-  height: 160px;
+  height: 120px;
   /* border-radius: 100%; */
   margin: auto;
   display: block;

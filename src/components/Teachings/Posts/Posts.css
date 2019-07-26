@@ -7,3 +7,14 @@
 .bloc-img-theme img {
   width: 300px;
 }
+
+.absolute {
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin-bottom: 100px;
+}
+
+.bloc-info-theme {
+  margin-top: 200px;
+}

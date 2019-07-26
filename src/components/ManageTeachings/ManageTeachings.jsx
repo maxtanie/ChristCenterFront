@@ -104,6 +104,11 @@ class ManageTeachings extends Component {
   render() {
     console.log("APIIIIIII", this.state.apiAddTeachingsAdultsById);
     console.log("PROPS", this.props);
+    const x = this.state.apiManageTeachingsAdults.map(elem => {
+      return elem.titleArticle;
+    });
+
+    // console.log("APPPPPPPPPP", x);
     // console.log(this.props.match.params);
     // const byId = this.state.apiManageTeachingsAdults.map(getId => {
     //   return <div>{getId._id}</div>;
@@ -115,7 +120,7 @@ class ManageTeachings extends Component {
 
     // const elem = this.state.apiManageTeachingsAdults;
     // console.log(elem.title);
-
+    console.log(this.state.apiManageTeachingsAdults, "dajdddddddddddddddddd");
     return (
       <div className="flex">
         <div className="container big-container-teachings">
@@ -124,16 +129,21 @@ class ManageTeachings extends Component {
             <thead>
               <tr class="table-row">
                 <th colspan="1" class="table-head">
-                  Teachings Image
+                  Image
                 </th>
                 <th colspan="1" class="table-head">
-                  Teachings Title
+                  TitleTeachings
                 </th>
                 <th colspan="1" class="table-head">
-                  Teachings Text
+                  TitleArticle
                 </th>
                 <th colspan="1" class="table-head">
-                  {" "}
+                  Conclusion
+                </th>
+                <th colspan="1" class="table-head">
+                  TitlePartOne
+                </th>
+                <th colspan="1" class="table-head">
                   Edit
                 </th>
                 <th colspan="1" class="table-head">
@@ -150,18 +160,32 @@ class ManageTeachings extends Component {
                         <div>
                           <img
                             className="table-image"
-                            src={elem.image}
+                            src={elem.imageArticle}
                             alt=""
                           />
                         </div>
                       </td>
 
                       <td className="table-division">
-                        <b>{elem.title}</b>
+                        <b>{elem.titleTeachings}</b>
                       </td>
 
                       <td className="table-division justify ">
-                        <div className="text-height">{elem.text}</div>
+                        <div className="text-height">{elem.titleArticle}</div>
+                      </td>
+
+                      <td className="table-division justify ">
+                        <div className="text-height conclusion">
+                          {elem.conclusion}
+                        </div>
+                      </td>
+
+                      <td className="table-division justify ">
+                        <div className="text-height conclusion">
+                          {elem.articlePartOne.map(titles => {
+                            return <p>{titles.title}</p>;
+                          })}
+                        </div>
                       </td>
 
                       <td className="table-division">

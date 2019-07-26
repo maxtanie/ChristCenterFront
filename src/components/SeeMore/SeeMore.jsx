@@ -128,14 +128,17 @@ class SeeMore extends Component {
               );
             })}
         </div> */}
-        <Slider>
+        {/* <Slider>
           {this.state.movie.imageSlide &&
             this.state.movie.imageSlide.map((img, index) => (
               <section key={index}>
                 <img src={img} className="show-image" />
               </section>
             ))}
-        </Slider>
+        </Slider> */}
+        <div className="poster-movie">
+          <img src={this.state.movie.imageSlide} />
+        </div>
 
         <section className="see-more infos">
           <div className="container-movies">
@@ -151,11 +154,9 @@ class SeeMore extends Component {
                   Hacksaw Ridge
                 </div>
               </div>
-              <div className="bloc-movie">
+              <div className="trailer-movie-see-more">
                 <iframe
                   title="iframe"
-                  width="100%"
-                  height="500"
                   src={this.state.movie.trailer}
                   frameborder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

@@ -9,9 +9,19 @@ class FormTeachingsAdults extends Component {
     this.state = {
       apiAddTeachings: [],
       // index: [],
-      title: "",
-      text: "",
-      image: ""
+      titleTeachings: "",
+      sliderCitation: [],
+      titleArticle: "",
+      imageArticle: "",
+      articlePartOne: [
+        {
+          title: "",
+          subTitle: ""
+        }
+      ],
+      articlePartTwo: [],
+      conclusion: "",
+      article: ""
     };
     this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
   }
@@ -69,14 +79,22 @@ class FormTeachingsAdults extends Component {
   // };
 
   handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    if (e.target.name === "articlePartOne") {
+      const articlePartOne = [...this.state.articlePartOne];
+      const position = e.target.getAttribute("data-attr");
+      const obj = { ...articlePartOne[position] };
+      obj.title = e.target.value;
+      articlePartOne[position] = obj;
+      this.setState({ articlePartOne });
+    } else
+      this.setState({
+        [e.target.name]: e.target.value
+      });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.data);
+    // console.log(this.state.data);
     console.log(this.state.apiAddTeachings);
     this.api
       .post("/teachings/adults", this.state)
@@ -85,8 +103,14 @@ class FormTeachingsAdults extends Component {
         console.log("***", this.props);
         this.setState({
           apiAddTeachings: res.data,
-          apiAddTeachings: this.state.title,
-          apiAddTeachings: this.state.text
+          apiAddTeachings: this.state.titleTeachings,
+          apiAddTeachings: this.state.sliderCitation,
+          apiAddTeachings: this.state.titleArticle,
+          apiAddTeachings: this.state.imageArticle,
+          apiAddTeachings: this.state.articlePartOne.push(this.state.article),
+
+          apiAddTeachings: this.state.articlePartTwo,
+          apiAddTeachings: this.state.conclusion
         });
         this.props.history.push("/admin/manage-teachings-adults");
       })
@@ -105,8 +129,7 @@ class FormTeachingsAdults extends Component {
     //   .catch(err => err);
   };
   render() {
-    console.log("-----props at form teaching ----");
-    console.log(this.props);
+    console.log("ARTICLEE3", this.state);
     const { title, text, image } = this.state;
     return (
       <div className="container-teachings-form">
@@ -121,28 +144,51 @@ class FormTeachingsAdults extends Component {
             <input
               className="input-style"
               type="text"
-              name="title"
-              placeholder="Add title"
+              name="titleTeachings"
+              placeholder="Add title Teachings"
             />
           </div>
           <div className="form-item">
             <input
               className="input-style"
               type="text"
-              name="image"
+              name="imageArticle"
               placeholder="Add link"
+            />
+          </div>
+          <div className="form-item">
+            <input
+              className="input-style"
+              name="titleArticle"
+              id=""
+              placeholder="Add title Article"
             />
           </div>
           <div className="form-item">
             <textarea
               className="input-style"
-              name="text"
+              name="conclusion"
               id=""
               cols="30"
               rows="10"
-              placeholder="Add text"
+              placeholder="Add conclusion Article"
             />
           </div>
+          <div className="form-item">
+            <input
+              className="input-style"
+              name="articlePartOne"
+              data-attr="0"
+              placeholder="Add  Article Part One"
+            />
+            <input
+              className="input-style"
+              name="articlePartOne"
+              data-attr="1"
+              placeholder="Add  Article Part One"
+            />
+          </div>
+
           <button type="submit" className="btn-add">
             Add
           </button>

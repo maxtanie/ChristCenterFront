@@ -14,9 +14,9 @@ class MainMovie extends Component {
     };
   }
 
-  pauseVideo = () => {
-    this.setState({ isVideoPlayed: !this.state.isVideoPlayed });
-  };
+  // pauseVideo = () => {
+  //   this.setState({ isVideoPlayed: !this.state.isVideoPlayed });
+  // };
 
   // playVideo = () => {
   //   this.state.playBtn = onclick = () => {
@@ -26,9 +26,9 @@ class MainMovie extends Component {
   //   };
   // };
 
-  removeSound = () => {
-    this.setState({ isVideoMuted: !this.state.isVideoMuted });
-  };
+  // removeSound = () => {
+  //   this.setState({ isVideoMuted: !this.state.isVideoMuted });
+  // };
 
   componentDidMount() {
     document.getElementById("body").className = "darktheme";
@@ -53,8 +53,7 @@ class MainMovie extends Component {
               <span> Psaume 109:18</span>
             </div>
             <div className="see-more" />
-
-            <span onClick={this.pauseVideo} className="pause btn-action-movie">
+            {/* <span onClick={this.pauseVideo} className="pause btn-action-movie">
               {this.state.isVideoPlayed ? (
                 <i class="fa fa-play icon-manipe mIcon" />
               ) : (
@@ -71,6 +70,7 @@ class MainMovie extends Component {
             {/* <span onClick={this.addSound} className="sound btn-action-movie">
               Sound
             </span> */}
+            */}
           </div>
         </div>
         <video id="background-video" loop autoPlay>
