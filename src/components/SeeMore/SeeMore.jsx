@@ -28,7 +28,9 @@ class SeeMore extends Component {
         casting: false
       }
     };
-    this.api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_API });
+    this.api = axios.create({
+      baseURL: process.env.REACT_APP_BACKEND_API
+    });
     // this.ShowContentResume = this.ShowContentResume.bind(this);
     // this.ShowContentInfos = this.ShowContentInfos.bind(this);
     // // this.ShowContentTitreSim = this.ShowContentTitreSim.bind(this);
@@ -63,8 +65,14 @@ class SeeMore extends Component {
   //   });
   // };
   callSeeMoreMovieId = id => {
+    console.log(
+      this.props,
+      "props of history",
+      this.props.match.params.id,
+      "match-params id"
+    );
     this.api
-      .get("/movies/see-more/" + id)
+      .get("/movies/see-more/" + this.props.match.params.id)
       .then(res => {
         console.log("db res -------------", res);
         this.setState({ movie: res.data });
@@ -89,6 +97,10 @@ class SeeMore extends Component {
     this.setState({ detailsWidget });
   };
   render() {
+    console.log(
+      this.props.match.params,
+      "--------------------------------PARAMS"
+    );
     const { detailsWidget } = this.state;
     console.log(this.state.detailsWidget);
 
