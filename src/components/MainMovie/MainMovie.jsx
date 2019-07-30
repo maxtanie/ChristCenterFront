@@ -70,7 +70,7 @@ class MainMovie extends Component {
             {/* <span onClick={this.addSound} className="sound btn-action-movie">
               Sound
             </span> */}
-            */}
+            
           </div>
         </div>
         <video id="background-video" loop autoPlay>
