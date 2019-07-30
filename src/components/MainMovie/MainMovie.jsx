@@ -50,7 +50,7 @@ class MainMovie extends Component {
               <q className="center">
                 Le <b className="red">pardon, </b> une puissance qui libère
               </q>
-              <span> Psaume 109:18</span>
+             
             </div>
             <div className="see-more" />
             {/* <span onClick={this.pauseVideo} className="pause btn-action-movie">
