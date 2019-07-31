@@ -178,6 +178,23 @@ const Posts = ({ posts, loading }) => {
               <h2 className="red">
                 Vidéos édifiantes sur la connaissance de Jésus
               </h2>
+              <div className="bloc-video-edification">
+               <div className="flex">
+                 <iframe
+                   src="https://www.youtube.com/embed/sW2IaDC1rWc"
+                   frameborder="0"
+                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                   allowfullscreen
+                   className="videoEdifiante"
+                 />
+                 <iframe
+                   src="https://www.youtube.com/embed/kjrcpC8Fu8s"
+                   frameborder="0"
+                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                   allowfullscreen
+                 />
+               </div>
+            </div>
             </div>
             {/* <VideosTeachingsSlider video={post.text} /> */}
           </div>
