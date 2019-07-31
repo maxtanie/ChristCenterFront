@@ -18,3 +18,11 @@
 .bloc-info-theme {
   margin-top: 200px;
 }
+
+.bloc-video-edification {
+  margin-top: 25px;
+}
+.bloc-video-edification iframe {
+  width: 600px;
+  height: 300px;
+}
