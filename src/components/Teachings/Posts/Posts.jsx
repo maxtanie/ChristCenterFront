@@ -89,7 +89,7 @@ const Posts = ({ posts, loading }) => {
            
             <span className="bold red"> Jean 6: 35</span>
           </div> */}
-          {post.sliderCitation &&
+<!--           {post.sliderCitation &&
             post.sliderCitation.map(elem => {
               return (
                 elem.citations &&
@@ -106,7 +106,11 @@ const Posts = ({ posts, loading }) => {
                   );
                 })
               );
-            })}
+            })} -->
+             <div className="bloc-slide-quotation center">
+             <q>Je suis le chemin la vérité et la vie.</q>
+             <span className="bold red"> Jean 6: 35</span>
+           </div>
           <div className="container">
             <div className="bloc-info-theme">
               <div className="flex-between">
