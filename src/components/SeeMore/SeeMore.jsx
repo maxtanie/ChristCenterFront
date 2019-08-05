@@ -97,10 +97,14 @@ class SeeMore extends Component {
     this.setState({ detailsWidget });
   };
   render() {
-    console.log(
-      this.props.match.params,
-      "--------------------------------PARAMS"
-    );
+    // const seeMoreImg = {
+    //   backgroundImage: url(`${this.state.movie.imagesSlide}`),
+    //   height: "500px"
+    // };
+    // console.log(
+    //   this.props.match.params,
+    //   "--------------------------------PARAMS"
+    // );
     const { detailsWidget } = this.state;
     console.log(this.state.detailsWidget);
 
@@ -136,15 +140,16 @@ class SeeMore extends Component {
               </section>
             ))}
         </Slider> */}
+
         <div className="poster-movie">
           <img src={this.state.movie.imageSlide} />
         </div>
 
-        <section className="see-more infos">
+        <section className="see-more infos infos-absolute">
           <div className="container-movies">
             <div className="bloc-content-infos">
               <div className="bloc-info-title">
-                <span className="title-info red bold size-small">
+                <span className="title-info red bold size-small size-big">
                   {this.state.movie.titleFr}
                 </span>
                 <span className="year-info red size-small">

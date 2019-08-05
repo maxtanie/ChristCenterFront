@@ -50,7 +50,6 @@ class MainMovie extends Component {
               <q className="center">
                 Le <b className="red">pardon, </b> une puissance qui libère
               </q>
-             
             </div>
             <div className="see-more" />
             {/* <span onClick={this.pauseVideo} className="pause btn-action-movie">
@@ -70,10 +69,9 @@ class MainMovie extends Component {
             {/* <span onClick={this.addSound} className="sound btn-action-movie">
               Sound
             </span> */}
-            
           </div>
         </div>
-        <video id="background-video" loop autoPlay>
+        <video id="background-video" loop autoPlay muted>
           <source src={this.state.videoURL} type="video/mp4" />
           <source src={this.state.videoURL} type="video/ogg" />
           Your browser does not support the video tag.

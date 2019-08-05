@@ -182,9 +182,7 @@ class ManageTeachings extends Component {
 
                       <td className="table-division justify ">
                         <div className="text-height conclusion">
-                          {elem.articlePartOne.map(titles => {
-                            return <p>{titles.title}</p>;
-                          })}
+                          <p>{elem.articlePartOneTitle}</p>
                         </div>
                       </td>
 

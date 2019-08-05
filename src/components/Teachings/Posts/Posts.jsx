@@ -90,11 +90,28 @@ const Posts = ({ posts, loading }) => {
             <span className="bold red"> Jean 6: 35</span>
           </div> */}
 
-             <div className="bloc-slide-quotation center">
-             <q>Je suis le chemin la vérité et la vie.</q>
-             <span className="bold red"> Jean 6: 35</span>
-           </div>
-          <div className="container">
+          {/* <q>Je suis le chemin la vérité et la vie.</q>
+            <span className="bold red"> Jean 6: 35</span> */}
+          {post.sliderCitation &&
+            post.sliderCitation.map(elem => {
+              return (
+                elem.citations &&
+                elem.citations.map((ele, i) => {
+                  return (
+                    <div className="bloc-slide-quotation center absolute">
+                      <span>
+                        <div>
+                          <q>{ele}</q>
+                          <span className="red bold"> {elem.verses[i]}</span>
+                        </div>
+                      </span>
+                    </div>
+                  );
+                })
+              );
+            })}
+
+          <div className="container mTop">
             <div className="bloc-info-theme">
               <div className="flex-between">
                 <div className="bloc-title-theme-and-img">
@@ -104,43 +121,42 @@ const Posts = ({ posts, loading }) => {
                   </div>
                 </div>
                 <div className="bloc-msg-theme mtop">
-                  {post.articlePartOne &&
-                    post.articlePartOne.map(article => {
-                      return (
-                        <React.Fragment>
-                          <h2>I {article.title}</h2>
-                          <br />
-                          <h3>1. {article.subTitle}</h3>
-                          <br />
-                          <p>{article.textArticle}</p>
-                          <span>
-                            <a href={article.linkWebPage} target="_blank">
-                              Learn More...
-                            </a>
-                          </span>
-                        </React.Fragment>
-                      );
-                    })}
+                  <React.Fragment>
+                    <h2>I {post.articlePartOneTitle}</h2>
+                    <br />
+                    <h3>1. {post.articlePartOneSubTitle}</h3>
+                    <br />
+                    <p>{post.articlePartOnetextArticle}</p>
+                    <span>
+                      <a
+                        className="red"
+                        href={post.articlePartOneLinkWebPage}
+                        target="_blank"
+                      >
+                        Learn More...
+                      </a>
+                    </span>
+                  </React.Fragment>
 
-                  {post.articlePartTwo &&
-                    post.articlePartOne.map(article => {
-                      return (
-                        <div className="mtop">
-                          <p>
-                            <h2>II {article.title}</h2>
-                            <br />
-                            <h3>1. {article.subTitle}</h3>
-                            <br />
-                            <p>{article.textArticle}</p>
-                            <span>
-                              <a href={article.linkWebPage} target="_blank">
-                                Learn More...
-                              </a>
-                            </span>
-                          </p>
-                        </div>
-                      );
-                    })}
+                  <div className="mtop">
+                    <p>
+                      <h2>II {post.articlePartTwoTitle}</h2>
+                      <br />
+                      <h3>1. {post.articlePartTwoSubTitle}</h3>
+                      <br />
+                      <p>{post.articlePartTwotextArticle}</p>
+                      <span>
+                        <a
+                          className="red"
+                          href={post.articlePartTwoLinkWebPage}
+                          target="_blank"
+                        >
+                          Learn More...
+                        </a>
+                      </span>
+                    </p>
+                  </div>
+
                   <br />
                   <h2>Conclusion</h2>
                   <br />
@@ -166,22 +182,22 @@ const Posts = ({ posts, loading }) => {
                 Vidéos édifiantes sur la connaissance de Jésus
               </h2>
               <div className="bloc-video-edification">
-               <div className="flex">
-                 <iframe
-                   src="https://www.youtube.com/embed/sW2IaDC1rWc"
-                   frameborder="0"
-                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                   allowfullscreen
-                   className="videoEdifiante"
-                 />
-                 <iframe
-                   src="https://www.youtube.com/embed/kjrcpC8Fu8s"
-                   frameborder="0"
-                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                   allowfullscreen
-                 />
-               </div>
-            </div>
+                <div className="flex">
+                  <iframe
+                    src="https://www.youtube.com/embed/sW2IaDC1rWc"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    className="videoEdifiante"
+                  />
+                  <iframe
+                    src="https://www.youtube.com/embed/kjrcpC8Fu8s"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
+                </div>
+              </div>
             </div>
             {/* <VideosTeachingsSlider video={post.text} /> */}
           </div>
