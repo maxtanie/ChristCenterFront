@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Redirect } from "react-router-dom";
+import tueras from "../MainMovie/movies/tueras.mp4";
 import "./Movies.css";
 
 const Movies = props => {
@@ -40,7 +41,9 @@ const Movies = props => {
           </a>
         </div>
         <div className="btn-watch">
-          <button className="watch-btn">Regarder</button>
+          <a className="watch-btn" href={tueras}>
+            Regarder
+          </a>
         </div>
       </div>
       <div className="layer-synopsis">

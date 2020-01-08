@@ -1,7 +1,7 @@
 "use strict";
 
 import React, { Component } from "react";
-import Jesus from "./lavoixdupardon.mp4";
+import Jesus from "./movies/lavoixdupardon.mp4";
 
 class MainMovie extends Component {
   constructor(props) {
