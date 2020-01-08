@@ -41,9 +41,7 @@ const Movies = props => {
           </a>
         </div>
         <div className="btn-watch">
-          <a className="watch-btn" href={tueras}>
-            Regarder
-          </a>
+          <a className="watch-btn" href={tueras}>Regarder</a>
         </div>
       </div>
       <div className="layer-synopsis">
